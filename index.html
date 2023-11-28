@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #resultImage {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Base64 to Image</title>
+</head>
+<body>
+    <h1>Base64 to Image Converter</h1>
+    <form id="base64Form">
+        <label for="base64Input">Base64 Text:</label>
+        <input type="text" id="base64Input" required>
+        <br>
+        <button type="button" onclick="convertToImage()">Convert to Image</button>
+    </form>
+    <div id="resultImage">
+        <h2>Resulting Image:</h2>
+        <img id="outputImage" alt="Resulting Image">
+    </div>
+
+    <script>
+        function convertToImage() {
+            const base64Input = document.getElementById('base64Input').value;
+            const outputImage = document.getElementById('outputImage');
+            const resultImageDiv = document.getElementById('resultImage');
+
+            if (base64Input) {
+                outputImage.src = `data:image/png;base64,${base64Input}`;
+                resultImageDiv.style.display = 'block';
+            } else {
+                alert('Please enter a valid Base64 string.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,39 +11,39 @@
             margin: 50px;
         }
 
-        #resultImage {
-            display: none;
+        .image-container {
             margin-top: 20px;
         }
+
+        .image-container img {
+            margin: 10px;
+            max-width: 300px;
+            max-height: 300px;
+        }
     </style>
-    <title>Base64 to Image</title>
+    <title>JSON to Images</title>
 </head>
 <body>
-    <h1>Base64 to Image Converter</h1>
-    <form id="base64Form">
-        <label for="base64Input">Base64 Text:</label>
-        <input type="text" id="base64Input" required>
-        <br>
-        <button type="button" onclick="convertToImage()">Convert to Image</button>
-    </form>
-    <div id="resultImage">
-        <h2>Resulting Image:</h2>
-        <img id="outputImage" alt="Resulting Image">
+    <div class="container">
+        <h1 class="mt-5">JSON to Images Viewer</h1>
+        <form id="jsonForm" class="mt-4">
+            <div class="form-group">
+                <label for="jsonInput">JSON Data:</label>
+                <textarea class="form-control" id="jsonInput" rows="5" cols="50" required></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="convertToImages()">Convert to Images</button>
+        </form>
+        <div id="imageContainer" class="mt-4 ">
+            <!-- Images will be displayed here -->
+        </div>
     </div>
 
-    <script>
-        function convertToImage() {
-            const base64Input = document.getElementById('base64Input').value;
-            const outputImage = document.getElementById('outputImage');
-            const resultImageDiv = document.getElementById('resultImage');
+   
 
-            if (base64Input) {
-                outputImage.src = `data:image/png;base64,${base64Input}`;
-                resultImageDiv.style.display = 'block';
-            } else {
-                alert('Please enter a valid Base64 string.');
-            }
-        }
-    </script>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="./main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
